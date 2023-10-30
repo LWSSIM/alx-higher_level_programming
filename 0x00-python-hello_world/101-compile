@@ -1,0 +1,2 @@
+#!/bin/bash
+python3 -m compileall $PYFILE -b  # -m compileall command compiles the specified Python script && -b option generates bytecode files.
