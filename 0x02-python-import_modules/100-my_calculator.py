@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-# this script uses calculator_1.py module  to perform simple arithmetics when called
+# this script uses calculator_1.py module
+# perform simple arithmetics when called
 
 import sys
 import calculator_1
