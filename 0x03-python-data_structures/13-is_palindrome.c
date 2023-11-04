@@ -11,7 +11,7 @@ int is_palindrome(listint_t **head)
 	listint_t *p1, *p2;
 	int count = 0;
 
-	if (!head)
+	if (!*head)
 		return (1);
 
 	p1 = *head;
