@@ -7,10 +7,11 @@
  */
 void print_python_list_info(PyObject *p)
 {
-	PyObject *item, *item_str;
 	Py_ssize_t i, list_size, num_allocated;
+	PyObject *item, *item_str;
+	char *str;
 
-	if (Pylist_check(p))
+	if (PyList_Check(p))
 	{
 		list_size = PyList_Size(p);
 		num_allocated = PyList_GET_SIZE(p);
@@ -25,8 +26,13 @@ void print_python_list_info(PyObject *p)
 			if (item)
 			{
 				item_str = PyObject_Str(item);
-
-				printf("%s\n", item_str);
+				if (item_str)
+				{
+					str = (char *)PyUnicode_AsUTF8(item_str);
+					printf("%s\n", str);
+					free(item_str);
+					free(str);
+				}
 			}
 		}
 	}
