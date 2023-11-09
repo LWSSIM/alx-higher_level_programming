@@ -7,7 +7,7 @@
  */
 void print_python_bytes(PyObject *p)
 {
-	Py_ssize_t size, i;
+	long int size, i;
 	char *data;
 
 	printf("[.] bytes object info\n");
@@ -25,7 +25,10 @@ void print_python_bytes(PyObject *p)
 		printf("  first %ld bytes:", ++size);
 	for (i = 0; i < size && i < 10; i++)
 	{
-		printf(" %02hhx", data[i]);
+		if (data[i] >= 0)
+			printf(" %02x", data[i]);
+		else
+			printf(" %02x", 256 + data[i])
 	}
 	printf("\n");
 }
@@ -37,7 +40,7 @@ void print_python_bytes(PyObject *p)
 void print_python_list(PyObject *p)
 {
 	const char *item_type;
-	Py_ssize_t size = ((PyVarObject *)p)->ob_size, i;
+	long int size = ((PyVarObject *)p)->ob_size, i;
 	Py_ssize_t allocated = ((PyListObject *)p)->allocated;
 
 	printf("[*] Python list info\n");
