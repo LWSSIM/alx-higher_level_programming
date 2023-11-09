@@ -22,7 +22,7 @@ void print_python_bytes(PyObject *p)
 	printf("  first %ld bytes: ", ++size);
 	for (i = 0; i < size && i < 10; i++)
 	{
-		printf("%02x ", data[i] & 0xFF);
+		printf("%02hhx ", data[i]);
 	}
 	printf("\n");
 }
