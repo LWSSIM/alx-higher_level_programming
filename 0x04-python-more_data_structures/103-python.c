@@ -1,5 +1,5 @@
-#include "Python.h"
-#include "stdio.h"
+#include <Python.h>
+#include <stdio.h>
 
 /**
  * print_python_bytes - print byts info
@@ -19,7 +19,10 @@ void print_python_bytes(PyObject *p)
 	PyBytes_AsStringAndSize(p, &data, &size);
 	printf("  size: %ld\n", size);
 	printf("  trying string: %s\n", data);
-	printf("  first %ld bytes: ", ++size);
+	if (size >= 10)
+		printf("  first 10 bytes:");
+	else
+		printf("  first %ld bytes: ", ++size);
 	for (i = 0; i < size && i < 10; i++)
 	{
 		printf("%02hhx ", data[i]);
