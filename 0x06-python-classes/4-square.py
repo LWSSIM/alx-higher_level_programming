@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """
 Module: define a square (class) init it and define other methods
+Note:
+    size is a private attribute.
+    @setter will centralize the logic.
 """
 
 
