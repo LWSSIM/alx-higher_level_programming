@@ -81,7 +81,7 @@ my_car.model = "Model 3"  # Modifying the 'model' attribute of the 'my_car' obje
 ```
 
 ## Public, Protected, and Private Attributes
-In Python, attribute visibility can be controlled using naming conventions. By convention, attributes that are intended to be public are prefixed with an underscore (`_`), protected attributes are prefixed with double underscores (`__`), and private attributes are prefixed with double underscores and suffixed with single underscores (`__`).
+In Python, attribute visibility can be controlled using naming conventions. By convention, attributes that are intended to be public are not prefixed with an underscore, protected attributes are prefixed with an underscores (`_`), and private attributes are prefixed with double underscores (`__`).
 
 Example:
 ```python
@@ -89,12 +89,12 @@ class MyClass:
     def __init__(self):
         self.public_attr = 123
         self._protected_attr = "456"
-        self.__private_attr__ = "789"
+        self.__private_attr = "789"
 
 obj = MyClass()
 obj.public_attr  # Accessing public attribute
 obj._protected_attr  # Accessing protected attribute (convention, not enforced)
-obj.__private_attr__  # Accessing private attribute (name mangling)
+obj.__private_attr  # Accessing private attribute (name mangling)
 ```
 
 ## Self

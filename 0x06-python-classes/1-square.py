@@ -25,4 +25,4 @@ class Square:
         Args:
             input new square size(private instance attribute)
         """
-        self._Square__size = size
+        self.__size = size
