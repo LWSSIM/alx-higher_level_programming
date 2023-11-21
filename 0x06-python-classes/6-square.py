@@ -2,8 +2,8 @@
 """
 Module: define a square (class) init it and define other methods
 Note:
-    size is a private attribute.
-    @setter will centralize the logic.
+    size/position are private attributes.
+    @getter/setter(properties) to centralize the logic.
 """
 
 
