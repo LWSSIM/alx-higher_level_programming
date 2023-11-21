@@ -1,12 +1,18 @@
 #!/usr/bin/python3
-# class Square
+"""
+Module:
+    empty class Square
+"""
+
+
 class Square:
-    '''
-    class: 
+    """
+    class:
         Square
     Note:
         empty test class used with 0-main.py
     Attributes:
         None
-    '''
+    """
+
     pass
