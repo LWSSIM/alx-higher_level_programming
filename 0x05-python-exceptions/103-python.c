@@ -71,7 +71,7 @@ void print_python_list(PyObject *p)
 	fflush(stdout);
 
 	printf("[*] Python list info\n");
-	if (!PyBytes_Check(p))
+	if (!PyList_CheckExact(p))
 	{
 		printf("  [ERROR] Invalid List Object\n");
 		return;
@@ -86,7 +86,7 @@ void print_python_list(PyObject *p)
 		printf("Element %ld: %s\n", i, ((object)->ob_type)->tp_name);
 		if (PyBytes_Check(object))
 			print_python_bytes(object);
-		if (PyBytes_Check(object))
+		if (PyFloat_Check(object))
 			print_python_float(object);
 	}
 }
