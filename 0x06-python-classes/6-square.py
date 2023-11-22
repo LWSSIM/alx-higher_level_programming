@@ -18,6 +18,8 @@ class Square:
         size (int): of the square
     Methods:
         __init__: init the class atrbt
+        size: property setter/getter
+        position: property setter/getter
     """
 
     def __init__(self, size=0, position=(0, 0)):
