@@ -16,9 +16,16 @@
     >>> say_my_name("Walter", "White")
     My name is Walter White
 
+--------------------------------------------------------------
+
+    Solo input
+--------------------------------------------------------------
     >>> say_my_name("LWSSIM")
     My name is LWSSIM 
 
+--------------------------------------------------------------
+    Expected errors
+--------------------------------------------------------------
     >>> say_my_name(999)
     Traceback (most recent call last):
     TypeError: first_name must be a string
