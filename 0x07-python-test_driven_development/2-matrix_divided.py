@@ -13,6 +13,10 @@ def matrix_divided(matrix, div):
 
         Return:
             a new martix
+
+        Raises:
+            type err on bad input parameter type
+            div/zero if div = 0
     '''
     err = "matrix must be a matrix (list of lists) of integers/floats"
     err2 = "Each row of the matrix must have the same size"

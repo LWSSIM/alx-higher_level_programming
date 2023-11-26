@@ -1,0 +1,30 @@
+=============================================================
+                The 3-say_my_name test
+=============================================================
+    This is a python test file using the doctest method
+
+    TESTS: ../3-say_my_name.py
+--------------------------------------------------------------
+
+    Expected Usage Example
+--------------------------------------------------------------
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+    >>> say_my_name("LWSSIM")
+    My name is LWSSIM 
+
+    >>> say_my_name(999)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name("lary", 420)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+
