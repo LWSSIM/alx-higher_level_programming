@@ -106,7 +106,7 @@ class Rectangle:
             if not isinstance(i, Rectangle):
                 msg = "{} must be an instance of Rectangle".format(Op)
                 raise TypeError(msg)
-        if rect_1.area == rect_2.area:
+        if Rectangle.area(rect_1) == Rectangle.area(rect_2):
             return rect_1
         area_1 = Rectangle.area(rect_1)
         area_2 = Rectangle.area(rect_2)
@@ -147,4 +147,3 @@ class Rectangle:
         '''
         Rectangle.number_of_instances -= 1
         print('Bye rectangle...')
-
