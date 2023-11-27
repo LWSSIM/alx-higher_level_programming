@@ -9,4 +9,3 @@ class Rectangle:
             Empty for test
     '''
     pass
-
