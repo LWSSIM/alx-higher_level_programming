@@ -89,7 +89,7 @@ class Rectangle:
             return 0
 
         return 2 * (self.height + self.width)
- 
+
     def __str__(self):
         '''str method of the Class
 
@@ -106,4 +106,3 @@ class Rectangle:
         width = self.width
         _print = (('#' * width) + '\n') * self.height
         return _print[:-1]
-
