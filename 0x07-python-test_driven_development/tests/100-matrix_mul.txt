@@ -1,0 +1,53 @@
+=============================================================
+                The 100-matrix_mul test
+=============================================================
+    This is a python test file using the doctest method
+
+    TESTS: ../100-matrix_mul 
+--------------------------------------------------------------
+
+    Expected Usage / behavious Example
+--------------------------------------------------------------
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]) # int input
+    [[7, 10], [15, 22]]
+
+    >>> matrix_mul([[1.0, 2.0], [3.0, 4.0]], [[1.0, 2.0], [3.0, 4.0]]) # float input
+    [[7.0, 10.0], [15.0, 22.0]]
+
+--------------------------------------------------------------
+
+    Expected Errors
+--------------------------------------------------------------
+
+    >>> matrix_mul("la", "moulada") # 1st operand raised
+    Traceback (most recent call last):
+    TypeError: m_a must be a list
+
+    >>> matrix_mul([[1.5, 2, 3], [5, 6, 7]], 90) # 2nd operand raised
+    Traceback (most recent call last):
+    TypeError: m_b must be a list
+
+    >>> matrix_mul([[1.5, 2, 3], [5, 6, 7]], [1.9, 8, 9]) # are the operands list elements lists?
+    Traceback (most recent call last):
+    TypeError: m_b must be a list of lists
+
+
+    >>> matrix_mul([[]], [[1.5, 2, 3], [5, 6, 7]]) # are the operands lists empty?
+    Traceback (most recent call last):
+    ValueError: m_a can't be empty
+
+
+    >>> matrix_mul([[1.0, 2.0], [3.0, 4.0]], [['88', 2.0], [3.0, 4.0]]) # a bad element in a list of lists?
+    Traceback (most recent call last):
+    TypeError: m_b should contain only integers or floats
+
+    >>> matrix_mul([[1, 2], [3, 4, 9]], [[1, 2], [3, 4]]) # equal row lenght per matrix?
+    Traceback (most recent call last):
+    TypeError: each row of m_a must be of the same size
+
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4], [8, 0]]) # equal row of m_a and col of m_b? check the posibilty of matrx_mul
+    Traceback (most recent call last):
+    ValueError: m_a and m_b can't be multiplied
