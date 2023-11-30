@@ -40,4 +40,3 @@ def text_indentation(text):
         else:
             print(char, end='')
             is_space = 0
-

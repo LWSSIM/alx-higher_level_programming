@@ -5,7 +5,6 @@
 """
 
 
-
 def add_integer(a, b=98):
     '''
         Adds 2 ints
@@ -26,4 +25,3 @@ def add_integer(a, b=98):
         if type(i) not in [int, float]:
             raise TypeError("{} must be an integer".format(operand))
     return int(a) + int(b)
-

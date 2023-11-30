@@ -3,6 +3,8 @@
     Module:
         fn to divide input matrix elements
 '''
+
+
 def matrix_divided(matrix, div):
     '''
         function that divides all elements of a matrix.
@@ -35,7 +37,7 @@ def matrix_divided(matrix, div):
     row_lenght_0 = len(matrix[0])
     x = 1
     while x < mtrx_size - 1:
-        if len(matrix[x]) !=  row_lenght_0:
+        if len(matrix[x]) != row_lenght_0:
             raise TypeError(err2)
         x += 1
 
@@ -44,5 +46,4 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    return ([list(map(lambda i: round(i / div, 2), row)) for row in  matrix])
-
+    return ([list(map(lambda i: round(i / div, 2), row)) for row in matrix])
