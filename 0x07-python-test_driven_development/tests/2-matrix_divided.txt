@@ -41,14 +41,23 @@
     >>> print(matrix_divided(matrix_1, 1))
     [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
 
+
+    >>> matrix_1 = [[1, 1, 1], [2, 2, 2], [3, 3, 3]]
+    >>> matrix_divided(matrix_1, 'lol')
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
     >>> matrix_1 = None
     >>> print(matrix_divided(matrix_1, 8))
     Traceback (most recent call last):
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
+    >>> matrix_divided(1534)
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
     >>> matrix_divided()
     Traceback (most recent call last):
-    ...
     TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
 
 
