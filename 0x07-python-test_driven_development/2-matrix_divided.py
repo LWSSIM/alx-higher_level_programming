@@ -36,7 +36,7 @@ def matrix_divided(matrix, div):
     mtrx_size = len(matrix)
     row_lenght_0 = len(matrix[0])
     x = 1
-    while x < mtrx_size - 1:
+    while x < mtrx_size:
         if len(matrix[x]) != row_lenght_0:
             raise TypeError(err2)
         x += 1
