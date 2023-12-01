@@ -25,8 +25,7 @@
 
     >>> lazy_matrix_mul("la", "moulada") # 1st operand raised
     Traceback (most recent call last):
-    numpy.core._exceptions._UFuncNoLoopError: ufunc 'matmul' did not contain a loop with signature matching types (dtype('<U2'), dtype('<U7')) -> None
-
+    ValueError: Scalar operands are not allowed, use '*' instead
 
     >>> lazy_matrix_mul([[1.5, 2, 3], [5, 6, 7]], 90) # 2nd operand raised
     Traceback (most recent call last):
