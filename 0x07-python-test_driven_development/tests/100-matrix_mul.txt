@@ -52,6 +52,11 @@
     Traceback (most recent call last):
     ValueError: m_a and m_b can't be multiplied
 
+
+    >>> matrix_mul([1, 2, 3, 4], [[1, 2], [3, 4]]) # int input
+    Traceback (most recent call last):
+    TypeError: m_a must be a list of lists
+
     >>> matrix_mul()
     Traceback (most recent call last):
     TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
