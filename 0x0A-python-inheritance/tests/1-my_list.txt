@@ -1,0 +1,27 @@
+================================
+test file for 1-my_list.txt
+================================
+----
+Basic Usage
+----
+	----docstring----
+	>>> MyList = __import__('1-my_list').MyList
+	>>> doc = __import__('1-my_list').MyList.__doc__
+	>>> len(doc) > 0
+	True
+
+	----normal use cases----
+	>>> mlist = MyList([1,2,3,4])
+	>>> mlist.print_sorted()
+	[1, 2, 3, 4]
+
+
+	>>> mlist = MyList([1,5,2,3])
+	>>> mlist.print_sorted()
+	[1, 2, 3, 5]
+	
+	>>> mlist = MyList([1,-5,2,-3])
+	>>> mlist.print_sorted()
+	[-5, -3, 1, 2]
+	
+
