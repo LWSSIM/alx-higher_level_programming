@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module: is this an instance of a class?
+"""Module: is this type of a class
 """
 
 
