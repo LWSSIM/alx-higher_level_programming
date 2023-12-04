@@ -25,3 +25,7 @@ Basic Usage
 	[-5, -3, 1, 2]
 	
 
+	>>> mlist = MyList([])
+	>>> mlist.print_sorted()
+	[]
+	
