@@ -12,6 +12,7 @@ class BaseGeometry:
 
     Methods:
         area: raise exception
+        integer_valitaor: validates input
     """
 
     def area(self):
