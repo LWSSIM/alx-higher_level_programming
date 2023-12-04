@@ -25,8 +25,8 @@ class BaseGeometry:
         """Validor of passed value
 
         Args:
-            name: str:
-            value: int: to be checked
+            name: (str)
+            value: (int) to be checked
 
         Raises:
            Type:
