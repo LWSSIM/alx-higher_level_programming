@@ -29,6 +29,10 @@ Basic Usage
 	Traceback (most recent call last):
 	ValueError: age must be greater than 0
 
+	>>> bg.integer_validator("age", -9)
+	Traceback (most recent call last):
+	ValueError: age must be greater than 0
+
 	>>> bg.integer_validator("name", 6.9)
 	Traceback (most recent call last):
 	TypeError: name must be an integer
