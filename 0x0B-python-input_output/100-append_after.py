@@ -12,7 +12,7 @@ def append_after(filename="", search_string="", new_string=""):
         search_string: flag str
         new_string: input text
     """
-    with open(filename, "r", encoding="utf-8") as f:
+    with open(filename, 'r') as f:
         lines = f.readlines()
 
     found = False
@@ -22,5 +22,5 @@ def append_after(filename="", search_string="", new_string=""):
             lines.insert(i + 1, new_string + "\n")
 
     if found:
-        with open(filename, "w", encoding="utf-8") as f:
+        with open(filename, "w") as f:
             f.writelines(lines)
