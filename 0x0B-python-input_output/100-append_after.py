@@ -12,10 +12,9 @@ def append_after(filename="", search_string="", new_string=""):
         search_string: flag str
         new_string: input text
     """
-    with open(filename, 'r') as f:
+    with open(filename, "r") as f:
         lines = f.readlines()
 
-    
     with open(filename, "w") as f:
         for line in lines:
             f.write(line)
