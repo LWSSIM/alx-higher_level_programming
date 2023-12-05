@@ -1,0 +1,14 @@
+What is Python File?
+When we talked about storing our data somewhere, we meant storing our data into files.
+
+A file is a container that stores information, right? In computer systems, a file is a contiguous set of bytes. Data in a computer system is always stored into files. Files can take different forms depending on the user requirements like data files, text files, program executable files etc.
+
+A computer processes these files by translating them into 0s and 1s.
+
+So all the text, images, videos that you store on your computer are nothing but a series of 0s and 1s.
+
+Every file contains three main parts:
+
+1. Header: This contains information about the file i.e. file name, file type, file size etc.
+2. Data: This is the actual information/content stored in the file.
+3. End of file: This is a special character that marks the end of the file.
