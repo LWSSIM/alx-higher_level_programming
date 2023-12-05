@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Module: function that returns the dictionary description with simple data structure
+"""Module: function that returns the dictionary
+description with simple data structure
 """
 
 
