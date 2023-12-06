@@ -3,7 +3,7 @@
 """
 
 
-import sys
+from sys import stdin
 
 
 def print_stat(size, status):
@@ -34,19 +34,23 @@ status = {
 line_nb = 0
 
 try:
-    for line in sys.stdin:
+    for line in stdin:
         if line_nb == 10:
             print_stat(size, status)
             line_nb = 0
         else:
             line_nb += 1
         lines = line.split()
-        size += int(line[-1])
-
-        for key in status:
-            if key == lines[-2]:
-                status[key] += 1
-
+        try:
+            size += int(lines[-1])
+        finally:
+            pass
+        try:
+            for key in status:
+                if key == lines[-2]:
+                    status[key] += 1
+        finally:
+            pass
     print_stat(size, status)
 except KeyboardInterrupt:
     print_stat(size, status)
