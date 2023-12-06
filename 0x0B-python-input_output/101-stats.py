@@ -16,7 +16,7 @@ def print_stat(size, status):
     """
     print(f"File size: {size}")
     for key in status:
-        if status[key] > 0:
+        if status[key] != 0:
             print(f"{key}: {status[key]}")
 
 
