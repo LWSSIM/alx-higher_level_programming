@@ -54,3 +54,4 @@ try:
     print_stat(size, status)
 except KeyboardInterrupt:
     print_stat(size, status)
+    raise
