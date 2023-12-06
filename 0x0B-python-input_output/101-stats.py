@@ -32,7 +32,6 @@ status = {
     "500": 0,
 }
 line_nb = 0
-
 try:
     for line in stdin:
         if line_nb == 10:
@@ -43,13 +42,13 @@ try:
         lines = line.split()
         try:
             size += int(lines[-1])
-        finally:
+        except (ValueError, IndexError):
             pass
         try:
             for key in status:
                 if key == lines[-2]:
                     status[key] += 1
-        finally:
+        except IndexError:
             pass
     print_stat(size, status)
 except KeyboardInterrupt:
