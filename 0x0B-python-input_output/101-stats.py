@@ -20,7 +20,7 @@ def print_stat(size, status):
             print(f"{key}: {status[key]}")
 
 
-size = 0
+file_size = 0
 status = {
     "200": 0,
     "301": 0,
@@ -35,13 +35,13 @@ line_nb = 0
 try:
     for line in stdin:
         if line_nb == 10:
-            print_stat(size, status)
+            print_stat(file_size, status)
             line_nb = 0
         else:
             line_nb += 1
         lines = line.split()
         try:
-            size += int(lines[-1])
+            file_size += int(lines[-1])
         except (ValueError, IndexError):
             pass
         try:
@@ -50,7 +50,7 @@ try:
                     status[key] += 1
         except IndexError:
             pass
-    print_stat(size, status)
+    print_stat(file_size, status)
 except KeyboardInterrupt:
-    print_stat(size, status)
+    print_stat(file_size, status)
     raise
