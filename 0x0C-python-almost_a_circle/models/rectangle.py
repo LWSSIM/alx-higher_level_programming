@@ -109,11 +109,11 @@ class Rectangle(Base):
         """update Rectangle attribues"""
         attr = ["id", "width", "height", "x", "y"]
         x = 0
-        if args:
+        if len(args):
             for i in args:
                 setattr(self, attr[x], i)
                 x += 1
-        elif kwargs:
+        elif len(kwargs):
             for i, j in kwargs.items():
                 setattr(self, i, j)
 
