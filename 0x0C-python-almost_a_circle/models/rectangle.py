@@ -128,3 +128,17 @@ class Rectangle(Base):
 
         p = f"[{n}] ({id}) {x}/{y} - {w}/{h}"
         return p
+
+    def to_dictionary(self):
+        """dict rep. for Rectangle
+
+        Return:
+            ditionary
+        """
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y,
+        }

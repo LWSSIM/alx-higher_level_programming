@@ -48,6 +48,19 @@ class Square(Rectangle):
             for i, j in kwargs.items():
                 setattr(self, i, j)
 
+    def to_dictionary(self):
+        """dict rep. for square
+
+        Return:
+            ditionary
+        """
+        return {
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y,
+        }
+
     def __str__(self):
         """Override Rects str representation"""
         p = (
