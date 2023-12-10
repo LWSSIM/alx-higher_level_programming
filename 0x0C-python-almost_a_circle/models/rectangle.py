@@ -103,23 +103,28 @@ class Rectangle(Base):
         if y > 0:
             print(("\n" * y), end="")
 
-        print((((" " * x) if x > 0 else None) + ("#" * w) + "\n") * h, end="")
+        print((((" " * x) if x > 0 else "") + ("#" * w) + "\n") * h, end="")
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """update Rectangle attribues"""
         attr = ["id", "width", "height", "x", "y"]
         x = 0
-        for i in args:
-            setattr(self, attr[x], i)
-            x += 1
+        if args:
+            for i in args:
+                setattr(self, attr[x], i)
+                x += 1
+        elif kwargs:
+            for i, j in kwargs.items():
+                setattr(self, i, j)
 
     def __str__(self):
         """over-riden str method"""
         id = self.id
+        n = type(self).__name__
         w = self.width
         h = self.height
         x = self.x
         y = self.y
 
-        p = f"[Rectangle] ({id}) {x}/{y} - {w}/{h}"
+        p = f"[{n}] ({id}) {x}/{y} - {w}/{h}"
         return p
