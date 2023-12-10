@@ -2,6 +2,9 @@
 """Module: Base class for the project
 """
 
+import json
+import csv
+
 
 class Base:
     """the “base” of all other classes in this project
@@ -45,3 +48,24 @@ class Base:
 
         if (name == "y" or name == "x") and value < 0:
             raise ValueError(name + " must be >= 0")
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """JSON string rep, for passed
+        List of dict
+        """
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
+        else:
+            return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """writes the JSON string representation of list_objs to a file"""
+
+        str_rep_instance = []
+        if list_objs is not None:
+            for inst in list_objs:
+                str_rep_instance.append(cls.to_dictionary(inst))  # type: ignore
+        with open(f"{cls.__name__}.json", "w") as f:
+            f.write(Base.to_json_string(str_rep_instance))
