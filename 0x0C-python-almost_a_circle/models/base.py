@@ -69,3 +69,14 @@ class Base:
                 str_rep_instance.append(cls.to_dictionary(inst))  # type: ignore
         with open(f"{cls.__name__}.json", "w") as f:
             f.write(Base.to_json_string(str_rep_instance))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """returns the list of the JSON string
+        representation
+        """
+
+        L = []
+        if json_string is not None and json_string != []:
+            L = json.loads(json_string)
+        return L
