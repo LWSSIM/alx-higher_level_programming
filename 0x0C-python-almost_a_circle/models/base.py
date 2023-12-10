@@ -25,3 +25,23 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    def integer_validator(self, name, value):
+        """Validor of passed valuus to int
+
+        Args:
+            name: (str)
+            value: (int) to be checked
+
+        Raises:
+           Type:
+           Value:
+        """
+        if value is not None and type(value) is not int:
+            raise TypeError(name + " must be an integer")
+
+        if (name == "width" or name == "height") and value <= 0:
+            raise ValueError(name + " must be > 0")
+
+        if (name == "y" or name == "x") and value < 0:
+            raise ValueError(name + " must be >= 0")

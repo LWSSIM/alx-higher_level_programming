@@ -23,24 +23,23 @@ class Rectangle(Base):
     """
 
     def __init__(self, width, height, x=0, y=0, id=None) -> None:
-        """
+        """init method
 
         Args:
-            width
+            width (dimensions)
             height
-            x
-            y
-            id
 
-        Returns:
-           bool: The return value. True for success, False otherwise.
+            x (position)
+            y
+
+            id
         """
+        super().__init__(id)
+
         self.width = width
         self.height = height
         self.x = x
         self.y = y
-
-        super().__init__(id)
 
     @property
     def width(self):
@@ -50,11 +49,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """width setter"""
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
-
+        self.integer_validator("width", value)
         self.__width = value
 
     @property
@@ -65,11 +60,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """height setter"""
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value <= 0:
-            raise ValueError("height must be > 0")
-
+        self.integer_validator("height", value)
         self.__height = value
 
     @property
@@ -80,11 +71,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """x setter"""
-        if not isinstance(value, int):
-            raise TypeError("x must be an integer")
-        if value < 0:
-            raise ValueError("x must be >= 0")
-
+        self.integer_validator("x", value)
         self.__x = value
 
     @property
@@ -95,9 +82,44 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """y setter"""
-        if not isinstance(value, int):
-            raise TypeError("y must be an integer")
-        if value < 0:
-            raise ValueError("y must be >= 0")
-
+        self.integer_validator("y", value)
         self.__y = value
+
+    def area(self):
+        """public method to calculate area
+
+        Return:
+            area int
+        """
+        return self.width * self.height
+
+    def display(self):
+        """display an instance using a character"""
+        w = self.width
+        h = self.height
+        x = self.x
+        y = self.y
+
+        if y > 0:
+            print(("\n" * y), end="")
+
+        print((((" " * x) if x > 0 else None) + ("#" * w) + "\n") * h, end="")
+
+    def update(self, *args):
+        """update Rectangle attribues"""
+        attr = ["id", "width", "height", "x", "y"]
+        x = 0
+        for i in args:
+            setattr(self, attr[x], i)
+            x += 1
+
+    def __str__(self):
+        """over-riden str method"""
+        id = self.id
+        w = self.width
+        h = self.height
+        x = self.x
+        y = self.y
+
+        p = f"[Rectangle] ({id}) {x}/{y} - {w}/{h}"
+        return p
