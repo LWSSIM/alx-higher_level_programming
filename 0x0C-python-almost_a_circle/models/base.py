@@ -77,6 +77,40 @@ class Base:
         """
 
         L = []
-        if json_string is not None and json_string != []:
+        if json_string is not None and json_string != "":
             L = json.loads(json_string)
         return L
+
+    @classmethod
+    def create(cls, **dictionary):
+        """returns an instance with all attributes
+        already set
+
+        Args:
+            cls: the class
+            dictionary: think a double pointer
+                to a dictionary
+        """
+        if cls.__name__ == "Rectangle":
+            temp = cls(1, 1)
+        else:
+            temp = cls(1)
+        cls.update(temp, **dictionary)
+        return temp
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances
+
+        Note:
+            created from the file from(sqve_to_file)
+        """
+        try:
+            with open(f"{cls.__name__}.json", "r") as f:
+                json_str = cls.from_json_string(f.read())
+                inst_list = []
+                for item in json_str:
+                    inst_list.append(cls.create(**item))
+                return inst_list
+        except FileNotFoundError:
+            return []
