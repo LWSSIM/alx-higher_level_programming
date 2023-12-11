@@ -122,11 +122,10 @@ class Base:
             write = csv.writer(f)
             for item in list_objs:
                 if cls.__name__ == 'Rectangle':
-                    write.writerow([item.id, item.width, item.height, item.x, item.y])
+                    write.writerow([item.id, item.width, item.height,
+                                    item.x, item.y])
                 else:
                     write.writerow([item.id, item.size, item.x, item.y])
-
-
 
     @classmethod
     def load_from_file_csv(cls):
