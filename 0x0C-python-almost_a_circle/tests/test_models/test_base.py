@@ -192,3 +192,121 @@ class TestBase(unittest.TestCase):
         r_list.append(S.Square(1, 2, 2, 9).to_dictionary())
         r_list.append(S.Square(3, 5, 3, 4).to_dictionary())
         self.assertEqual(file_contents, B.Base.to_json_string(r_list))
+
+class TestBaseCreate(unittest.TestCase):
+    '''test Base: create method
+    '''
+    def test_create_rectangle(self):
+        '''is the rect, dict created valid?
+        '''
+        r1 = R.Rectangle(3, 5, 4, 4)
+        r1_dict = r1.to_dictionary()
+        r2 = R.Rectangle.create(**r1_dict)
+        self.assertEqual(str(r1), f"[Rectangle] ({r1.id}) 4/4 - 3/5")
+        self.assertEqual(str(r2), f"[Rectangle] ({r2.id}) 4/4 - 3/5")
+        self.assertIsNot(r1, r2)
+        self.assertNotEqual(r1, r2)
+
+    def test_create_square(self):
+        '''is the rect, dict created valid?
+        '''
+        s1 = S.Square(3, 5, 4)
+        s1_dict = s1.to_dictionary()
+        s2 = S.Square.create(**s1_dict)
+        self.assertEqual(str(s1), f"[Square] ({s1.id}) 5/4 - 3")
+        self.assertEqual(str(s2), f"[Square] ({s2.id}) 5/4 - 3")
+        self.assertIsNot(s1, s2)
+        self.assertNotEqual(s1, s2)
+
+class TestBaseFromJSONStr(unittest.TestCase):
+    '''tests the from json str base method
+    '''
+    def test_type_and_IO_rectangle(self):
+        '''is the type and file IO values correct
+        '''
+        l_in = [{'id':1, 'width':1, 'height':1, 'x':1, 'y':1}]
+        json_in = R.Rectangle.to_json_string(l_in)
+        json_out = R.Rectangle.from_json_string(json_in)
+        self.assertEqual(list, type(json_out))
+        self.assertEqual(l_in, json_out)
+    
+    def test_2_IO_rectangle(self):
+        '''is the type and file IO values correct
+        '''
+        l_in = [{'id':1, 'width':1, 'height':1, 'x':1, 'y':1},
+                {'id':1, 'width':1, 'height':1, 'x':1, 'y':1}]
+        json_in = R.Rectangle.to_json_string(l_in)
+        json_out = R.Rectangle.from_json_string(json_in)
+        self.assertEqual(list, type(json_out))
+        self.assertEqual(l_in, json_out)
+
+
+    def test_type_and_IO_square(self):
+        '''is the type and file IO values correct
+        '''
+        l_in = [{'id':1, 'width':1, 'height':1, 'x':1, 'y':1},
+                {'id':1, 'width':1, 'height':1, 'x':1, 'y':1}]
+        json_in = S.Square.to_json_string(l_in)
+        json_out = S.Square.from_json_string(json_in)
+        self.assertEqual(list, type(json_out))
+        self.assertEqual(l_in, json_out)
+
+    def test2_IO_square(self):
+        '''is the type and file IO values correct
+        '''
+        l_in = [{'id':1, 'size':1, 'x':1, 'y':1}]
+        json_in = S.Square.to_json_string(l_in)
+        json_out = S.Square.from_json_string(json_in)
+        self.assertEqual(list, type(json_out))
+        self.assertEqual(l_in, json_out)
+
+    def test_None(self):
+        self.assertEqual(B.Base.from_json_string(None), [])
+
+    def test_no_args(self):
+        with self.assertRaises(TypeError):
+            B.Base.from_json_string()
+
+    def test_wrong_input(self):
+        with self.assertRaises(TypeError):
+            B.Base.from_json_string([], 8)
+
+class TestBaseLoadFromFile(unittest.TestCase):
+    '''test base method -> load_from_file
+    '''
+    
+    def test_load_rectangle(self):
+        r1 = R.Rectangle(1, 8, 4)
+        r2 = R.Rectangle(2, 2, 3, 4, 5)
+        R.Rectangle.save_to_file([r1, r2])
+        list_output = R.Rectangle.load_from_file()
+        self.assertEqual(str(r1), str(list_output[0]))
+        self.assertEqual(str(r2), str(list_output[1]))
+        self.assertTrue(all(type(obj)) == R.Rectangle for obj in list_output)
+
+    def test_load_square(self):
+        r1 = S.Square(1, 8, 4)
+        r2 = S.Square(2, 2, 3, 4)
+        S.Square.save_to_file([r1, r2])
+        list_output = S.Square.load_from_file()
+        self.assertEqual(str(r1), str(list_output[0]))
+        self.assertEqual(str(r2), str(list_output[1]))
+        self.assertTrue(all(type(obj)) == S.Square for obj in list_output)
+
+    def test_bad_args(self):
+        '''tests args validity'''
+        with self.assertRaises(TypeError):
+            B.Base.load_from_file([], 2)
+
+    @classmethod
+    def tearDown(cls):
+        '''deletes created .json files'''
+        files = ["Rectangle.json", "Square.json"]
+        for file in files:
+            try:
+                os.remove(file)
+            except FileNotFoundError:
+                pass
+
+if __name__ == '__main__':
+    unittest.main()
