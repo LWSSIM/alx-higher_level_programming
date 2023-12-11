@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """test unit for base class
 """
@@ -399,6 +398,7 @@ class TestRectangle(unittest.TestCase):
         self.assertIsInstance(obj_dict, dict)
         self.assertCountEqual(test_dict.keys(), obj_dict.keys())
         self.assertCountEqual(test_dict.values(), obj_dict.values())
+
 
 if __name__ == '__main__':
     unittest.main()
