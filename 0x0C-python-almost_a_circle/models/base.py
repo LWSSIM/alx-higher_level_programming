@@ -4,6 +4,10 @@
 
 import json
 import csv
+'''
+import turtle
+import random
+'''
 
 
 class Base:
@@ -148,3 +152,46 @@ class Base:
                 return inst_list
         except FileNotFoundError:
             return []
+
+
+'''
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """opens a window and draws all the Rectangles and Squares
+        Note:
+            uses turtle graphic module
+
+        Args:
+            list_rectangle: list of Rectangle objects
+            list_square: list of Square objects
+        """
+        t = turtle.Turtle()
+        screen = turtle.Screen()
+        colors = ["red", "orange", "yellow", "green",
+                  "black", "blue", "purple"]
+        for rec in list_rectangles:
+            t.color(random.choice(colors))
+            t.penup()
+            t.goto(rec.x, rec.y)
+            t.pendown()
+            for _ in range(5):
+                t.begin_fill()
+                t.forward(rec.width)
+                t.right(90)
+                t.forward(rec.height)
+                t.right(90)
+                t.end_fill()
+            screen.clear()
+        for sqr in list_squares:
+            t.color(random.choice(colors))
+            t.penup()
+            t.goto(sqr.x, sqr.y)
+            t.pendown()
+            for n in range(5):
+                t.begin_fill()
+                t.forward(sqr.size)
+                t.right(90)
+                t.end_fill()
+            screen.clear()
+        turtle.done()
+'''
