@@ -66,7 +66,7 @@ class Base:
         str_rep_instance = []
         if list_objs is not None:
             for inst in list_objs:
-                str_rep_instance.append(cls.to_dictionary(inst))  # type: ignore
+                str_rep_instance.append(cls.to_dictionary(inst))
         with open(f"{cls.__name__}.json", "w") as f:
             f.write(Base.to_json_string(str_rep_instance))
 
@@ -103,7 +103,7 @@ class Base:
         """returns a list of instances
 
         Note:
-            created from the file from(sqve_to_file)
+            created from the file from(save_to_file)
         """
         try:
             with open(f"{cls.__name__}.json", "r") as f:
@@ -111,6 +111,41 @@ class Base:
                 inst_list = []
                 for item in json_str:
                     inst_list.append(cls.create(**item))
+                return inst_list
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """serializes in CSV"""
+        with open(f"{cls.__name__}.csv", "w") as f:
+            write = csv.writer(f)
+            for item in list_objs:
+                if cls.__name__ == 'Rectangle':
+                    write.writerow([item.id, item.width, item.height, item.x, item.y])
+                else:
+                    write.writerow([item.id, item.size, item.x, item.y])
+
+
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """deserializes in csv"""
+        try:
+            with open(f"{cls.__name__}.csv", "r") as f:
+                read = csv.reader(f)
+                inst_list = []
+                keys = [["id", "width", "height", "x", "y"],
+                        ["id", "size", "x", "y"]]
+                inst_dict = {}
+                for item in read:
+                    if cls.__name__ == 'Rectangle':
+                        for key, value in zip(keys[0], item):
+                            inst_dict[key] = int(value)
+                    elif cls.__name__ == 'Square':
+                        for key, value in zip(keys[1], item):
+                            inst_dict[key] = int(value)
+                    inst_list.append(cls.create(**inst_dict))
                 return inst_list
         except FileNotFoundError:
             return []
