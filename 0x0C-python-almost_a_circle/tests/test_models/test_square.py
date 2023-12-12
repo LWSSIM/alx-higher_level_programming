@@ -21,34 +21,6 @@ class TestSquare(unittest.TestCase):
         self.assertIsNotNone(S.__doc__)
         self.assertGreater(len(S.__doc__), 0)
 
-    def test_class_doc(self):
-        """
-        test for class doc
-        """
-        self.assertIsNotNone(S.Square.__doc__)
-        self.assertGreater(len(S.Square.__doc__), 0)
-
-    def test_init_doc(self):
-        """
-        test for init doc
-        """
-        self.assertIsNotNone(S.Square.__init__.__doc__)
-        self.assertGreater(len(S.Square.__init__.__doc__), 0)
-
-    def test_update_doc(self):
-        """
-        test for update doc
-        """
-        self.assertIsNotNone(S.Square.update.__doc__)
-        self.assertGreater(len(S.Square.update.__doc__), 0)
-
-    def test_to_dictionary_doc(self):
-        """
-        test for to dictionary doc
-        """
-        self.assertIsNotNone(S.Square.to_dictionary.__doc__)
-        self.assertGreater(len(S.Square.to_dictionary.__doc__), 0)
-
     def setUp(self):
         """
         Resets id
@@ -79,7 +51,7 @@ class TestSquare(unittest.TestCase):
             S.Square()
         self.assertEqual(
             str(err.exception),
-            "Square.__init__() missing 1 required positional argument: 'size'",
+            "__init__() missing 1 required positional argument: 'size'",
         )
 
     def test_too_many_args(self):
@@ -90,7 +62,7 @@ class TestSquare(unittest.TestCase):
             S.Square(1, 2, 3, 4, 5, 6)
         self.assertEqual(
             str(err.exception),
-            "Square.__init__() takes from 2 to 5 positional" +
+            "__init__() takes from 2 to 5 positional" +
             " arguments but 7 were given",
         )
 

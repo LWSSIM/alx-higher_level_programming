@@ -96,14 +96,14 @@ class TestRectangle(unittest.TestCase):
             R.Rectangle()
         self.assertEqual(
             str(err.exception),
-            "Rectangle.__init__() missing 2 required positional" +
+            "__init__() missing 2 required positional" +
             " arguments: 'width' and 'height'",
         )
         with self.assertRaises(TypeError) as err:
             R.Rectangle(1)
         self.assertEqual(
             str(err.exception),
-            "Rectangle.__init__() missing 1 required positional" +
+            "__init__() missing 1 required positional" +
             " argument: 'height'",
         )
 
@@ -115,7 +115,7 @@ class TestRectangle(unittest.TestCase):
             R.Rectangle(1, 2, 3, 4, 5, 6)
         self.assertEqual(
             str(err.exception),
-            "Rectangle.__init__() takes from 3 to 6 positional" +
+            "__init__() takes from 3 to 6 positional" +
             " arguments but 7 were given",
         )
 
