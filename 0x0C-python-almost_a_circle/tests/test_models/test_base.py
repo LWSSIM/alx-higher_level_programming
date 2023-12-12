@@ -11,7 +11,6 @@ import os
 
 class TestBase(unittest.TestCase):
     """
-
     Note:
         this class has no class attributes
 
