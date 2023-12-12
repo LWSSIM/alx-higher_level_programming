@@ -35,18 +35,19 @@ class TestBase(unittest.TestCase):
         '''
         Base._Base__nb_objects = 0
 
+    def test_base_id(self):
+        ''' id setting and incrementing
+        '''
+        b1 = Base()
+        b2 = Base()
+        self.assertEqual(b2.id, b1.id + 1)
+
     def test_attr_privacy(self):
         '''is nb_object private?
         '''
         b1 = Base.__nb_objects = 9
         self.assertNotIsInstance(b1, Base)
 
-    def test_id(self):
-        ''' id setting and incrementing
-        '''
-        b1 = Base()
-        b2 = Base()
-        self.assertEqual(b2.id, b1.id + 1)
 
     def test_id_vals(self):
         '''id values
