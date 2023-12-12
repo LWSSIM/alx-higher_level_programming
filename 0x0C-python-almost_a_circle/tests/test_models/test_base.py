@@ -20,12 +20,22 @@ class TestBase(unittest.TestCase):
     Methods:
         __init__: init the class attributes
     """
+    def test_docs(self):
+        '''docstrings for
+            module, class, method'''
+        self.assertIsNotNone(__doc__)
+        self.assertGreater(len(__doc__), 0)
+        self.assertIsNotNone(Base.__doc__)
+        self.assertGreater(len(Base.__doc__), 0)
+        self.assertIsNotNone(Base.__init__.__doc__)
+        self.assertGreater(len(Base.__init__.__doc__), 0)
+
     def setUp(self) -> None:
         '''setup cls attrs
         '''
         Base._Base__nb_objects = 0
 
-    def test_base_id(self):
+    def test_id(self):
         ''' id setting and incrementing
         '''
         b1 = Base()
