@@ -3,7 +3,6 @@
 Module for the unittest of the class Square
 """
 import models.base as B
-import models.rectangle as R
 import models.square as S
 import unittest
 from io import StringIO
