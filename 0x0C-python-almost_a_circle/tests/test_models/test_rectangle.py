@@ -157,6 +157,9 @@ class TestRectangle(unittest.TestCase):
         """
         Tests for x validation
         """
+        with self.assertRaises(TypeError) as err:
+            rec1 = R.Rectangle(1, 2, "3")
+        self.assertEqual(str(err.exception), "x must be an integer")
         rec = R.Rectangle(1, 1)
         with self.assertRaises(TypeError) as err:
             rec.x = True
@@ -175,6 +178,10 @@ class TestRectangle(unittest.TestCase):
         """
         Tests for y validation
         """
+        with self.assertRaises(TypeError) as err:
+            rec1 = R.Rectangle(1, 2, 3, "4")
+        self.assertEqual(str(err.exception), "y must be an integer")
+        rec = R.Rectangle(1, 1)
         rec = R.Rectangle(1, 1)
         with self.assertRaises(TypeError) as err:
             rec.y = True
