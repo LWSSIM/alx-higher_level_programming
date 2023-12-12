@@ -6,6 +6,7 @@ import models.base as B
 import models.square as S
 import unittest
 from io import StringIO
+import os
 from unittest.mock import patch
 
 
@@ -301,6 +302,16 @@ class TestSquare(unittest.TestCase):
             sqr.update(69, id=30, size=22, x=11, y=13)
             print(sqr)
             self.assertEqual(fo.getvalue(), "[Square] (69) 0/0 - 20\n")
+    
+    def test_save_to_file_file_exist_square_empty(self):
+        """
+        save to file with [] input square
+        """
+        S.Square.save_to_file([])
+        self.assertTrue(os.path.exists(os.path.join(".", "Square.json")))
+        with open("Square.json", "r") as f:
+            file_contents = f.read()
+        self.assertEqual(file_contents, "[]")
 
     def test_to_dictionary(self):
         """
