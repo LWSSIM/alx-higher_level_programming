@@ -96,13 +96,15 @@ class TestRectangle(unittest.TestCase):
             R.Rectangle()
         self.assertEqual(
             str(err.exception),
-            "Rectangle.__init__() missing 2 required positional arguments: 'width' and 'height'",
+            "Rectangle.__init__() missing 2 required positional" +
+            " arguments: 'width' and 'height'",
         )
         with self.assertRaises(TypeError) as err:
             R.Rectangle(1)
         self.assertEqual(
             str(err.exception),
-            "Rectangle.__init__() missing 1 required positional argument: 'height'",
+            "Rectangle.__init__() missing 1 required positional" +
+            " argument: 'height'",
         )
 
     def test_too_many_args(self):
@@ -113,7 +115,8 @@ class TestRectangle(unittest.TestCase):
             R.Rectangle(1, 2, 3, 4, 5, 6)
         self.assertEqual(
             str(err.exception),
-            "Rectangle.__init__() takes from 3 to 6 positional arguments but 7 were given",
+            "Rectangle.__init__() takes from 3 to 6 positional" +
+            " arguments but 7 were given",
         )
 
     def test_width_validation(self):
@@ -211,7 +214,8 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(fo.getvalue(), "##\n##\n")
         with patch("sys.stdout", new=StringIO()) as fo:
             R.Rectangle(4, 6).display()
-            self.assertEqual(fo.getvalue(), "####\n####\n####\n####\n####\n####\n")
+            self.assertEqual(fo.getvalue(),
+                             "####\n####\n####\n####\n####\n####\n")
 
     def test_str(self):
         """
@@ -350,7 +354,8 @@ class TestRectangle(unittest.TestCase):
             print(rec)
             self.assertEqual(fo.getvalue(), "[Rectangle] (69) 34/77 - 12/19\n")
         with patch("sys.stdout", new=StringIO()) as fo:
-            rec.update(69, 12, 19, 34, 77, id=30, width=22, height=21, x=11, y=13)
+            rec.update(69, 12, 19, 34, 77, id=30, width=22,
+                       height=21, x=11, y=13)
             print(rec)
             self.assertEqual(fo.getvalue(), "[Rectangle] (69) 34/77 - 12/19\n")
         rec = R.Rectangle(10, 20)

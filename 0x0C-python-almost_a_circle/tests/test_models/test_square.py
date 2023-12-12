@@ -91,7 +91,8 @@ class TestSquare(unittest.TestCase):
             S.Square(1, 2, 3, 4, 5, 6)
         self.assertEqual(
             str(err.exception),
-            "Square.__init__() takes from 2 to 5 positional arguments but 7 were given",
+            "Square.__init__() takes from 2 to 5 positional" +
+            " arguments but 7 were given",
         )
 
     def test_size_validation(self):
