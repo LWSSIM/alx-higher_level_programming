@@ -21,7 +21,7 @@ class TestBase(unittest.TestCase):
         __init__: init the class attributes
     """
     def test_docs(self):
-        '''Test docstrings for
+        '''docstrings for
             module, class, method'''
         self.assertIsNotNone(__doc__)
         self.assertGreater(len(__doc__), 0)
@@ -42,7 +42,7 @@ class TestBase(unittest.TestCase):
         self.assertNotIsInstance(b1, Base)
 
     def test_id(self):
-        '''test id setting and incrementing
+        ''' id setting and incrementing
         '''
         b1 = Base()
         b2 = Base()
@@ -63,7 +63,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b2.id, b1.id + 1)
 
     def test_more_args(self):
-        """test bad args input
+        """bad args input
         """
         with self.assertRaises(TypeError):
             Base(1, 1)
@@ -80,7 +80,7 @@ class TestBase(unittest.TestCase):
 
     def test_to_json_string_empty_and_none(self):
         """
-        Test with 1 dictionary
+        with 1 dictionary
         """
         res = Base.to_json_string([])
         self.assertIsInstance(res, str)
@@ -193,7 +193,7 @@ class TestBase(unittest.TestCase):
 
 
 class TestBaseCreate(unittest.TestCase):
-    '''test Base: create method
+    '''Base: create method
     '''
     def test_create_rectangle(self):
         '''is the rect, dict created valid?
@@ -219,7 +219,7 @@ class TestBaseCreate(unittest.TestCase):
 
 
 class TestBaseFromJSONStr(unittest.TestCase):
-    '''tests the from json str base method
+    '''the from json str base method
     '''
     def test_type_and_IO_rectangle(self):
         '''is the type and file IO values correct
@@ -272,7 +272,7 @@ class TestBaseFromJSONStr(unittest.TestCase):
 
 
 class TestBaseLoadFromFile(unittest.TestCase):
-    '''test base method -> load_from_file
+    '''base method -> load_from_file
     '''
 
     def test_load_rectangle(self):
@@ -294,7 +294,7 @@ class TestBaseLoadFromFile(unittest.TestCase):
         self.assertTrue(all(type(obj)) == Square for obj in list_output)
 
     def test_bad_args(self):
-        '''tests args validity'''
+        '''args validity'''
         with self.assertRaises(TypeError):
             Base.load_from_file([], 2)
 
