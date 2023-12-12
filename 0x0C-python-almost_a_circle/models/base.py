@@ -4,8 +4,10 @@
 
 import json
 import csv
+'''
 import turtle
 import random
+'''
 
 
 class Base:
@@ -151,6 +153,8 @@ class Base:
         except FileNotFoundError:
             return []
 
+
+'''
     @staticmethod
     def draw(list_rectangles, list_squares):
         """opens a window and draws all the Rectangles and Squares
@@ -190,3 +194,4 @@ class Base:
                 t.end_fill()
             screen.clear()
         turtle.done()
+'''
