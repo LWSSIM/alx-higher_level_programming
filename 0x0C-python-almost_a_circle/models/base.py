@@ -19,6 +19,15 @@ class Base:
 
     Methods:
         __init__: init the class attributes
+        def integer_validator(self, name, value):
+        def to_json_string(list_dictionaries):
+        def save_to_file(cls, list_objs):
+        def from_json_string(json_string):
+        def create(cls, **dictionary):
+        def load_from_file(cls):
+        def save_to_file_csv(cls, list_objs):
+        def load_from_file_csv(cls):
+        def draw(list_rectangles, list_squares):
     """
 
     __nb_objects = 0
