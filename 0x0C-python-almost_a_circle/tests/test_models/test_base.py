@@ -20,6 +20,7 @@ class TestBase(unittest.TestCase):
     Methods:
         __init__: init the class attributes
     """
+
     def test_docs(self):
         '''docstrings for
             module, class, method'''
@@ -195,6 +196,7 @@ class TestBase(unittest.TestCase):
 class TestBaseCreate(unittest.TestCase):
     '''Base: create method
     '''
+
     def test_create_rectangle(self):
         '''is the rect, dict created valid?
         '''
@@ -221,6 +223,7 @@ class TestBaseCreate(unittest.TestCase):
 class TestBaseFromJSONStr(unittest.TestCase):
     '''the from json str base method
     '''
+
     def test_type_and_IO_rectangle(self):
         '''is the type and file IO values correct
         '''
