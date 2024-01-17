@@ -128,4 +128,25 @@ SELECT product_id, product_name FROM appliances;
 
 ![image](https://github.com/LWSSIM/alx-higher_level_programming/assets/127129101/74e86347-8742-486a-a551-d01fc1e4498c)
 
+## PS;
+### How to import a SQL dump
+```shell
+$ echo "CREATE DATABASE hbtn_0d_tvshows;" | mysql -uroot -p
+Enter password: 
+$ curl "https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/274/hbtn_0d_tvshows.sql" -s | mysql -uroot -p hbtn_0d_tvshows
+Enter password: 
+$ echo "SELECT * FROM tv_genres" | mysql -uroot -p hbtn_0d_tvshows
+Enter password: 
+id  name
+1   Drama
+2   Mystery
+3   Adventure
+4   Fantasy
+5   Comedy
+6   Crime
+7   Suspense
+8   Thriller
+$
+```
+
 This guide provides a foundation for understanding key MySQL concepts and performing common tasks. Experiment with these examples to reinforce your understanding of MySQL on Linux.
