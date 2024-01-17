@@ -126,4 +126,6 @@ UNION
 SELECT product_id, product_name FROM appliances;
 ```
 
+![image](https://github.com/LWSSIM/alx-higher_level_programming/assets/127129101/74e86347-8742-486a-a551-d01fc1e4498c)
+
 This guide provides a foundation for understanding key MySQL concepts and performing common tasks. Experiment with these examples to reinforce your understanding of MySQL on Linux.
