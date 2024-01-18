@@ -7,7 +7,7 @@
 --   Results must be sorted in ascending order by the show title
 --   You can use a maximum of two SELECT statement
 --   The database name will be passed as an argument of the mysql command
-SELECT tv_shows.title
+SELECT title
 FROM tv_shows
 WHERE id NOT IN (
     SELECT ts.id
