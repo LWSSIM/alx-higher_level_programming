@@ -6,11 +6,11 @@
 --   Results must be sorted in descending order by their rating
 --   You can use only one SELECT statement
 --   The database name will be passed as an argument of the mysql command
-SELECT g.name AS genre_name, SUM(r.rate) AS rating_sum
+SELECT g.name AS name, SUM(r.rate) AS rating
   FROM tv_genres g
   JOIN tv_show_genres sg ON g.id = sg.genre_id
   JOIN tv_show_ratings r ON r.show_id = sg.show_id
   GROUP BY g.name
-  ORDER BY rating_sum DESC;
+  ORDER BY rating DESC;
 
 
