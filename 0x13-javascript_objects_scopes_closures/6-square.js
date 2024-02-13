@@ -2,9 +2,9 @@
 /* Class that defines a square inherit from rectangle */
 /* uses extends + super() */
 
-const Rectangle = require('./4-rectangle');
+const S = require('./5-square');
 
-class Square extends Rectangle {
+class Square extends S {
   constructor (size) {
     super(size, size);
   }
