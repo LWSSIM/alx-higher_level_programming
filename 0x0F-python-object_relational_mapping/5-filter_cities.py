@@ -13,7 +13,7 @@ Script that takes in the name of a state as an argument and
  -You can use only execute() once
  -The results must be displayed as they are in the example below
  -Your code should not be executed when imported
- 
+
  (FORMATED)
 """
 
