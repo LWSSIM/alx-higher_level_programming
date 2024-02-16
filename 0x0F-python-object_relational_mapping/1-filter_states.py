@@ -18,7 +18,7 @@ import MySQLdb
 import sys
 
 
-def list_all_states(username, password, database):
+def list_regx_states(username, password, database):
     try:
         conn = MySQLdb.connect(
             host="localhost",
@@ -55,4 +55,4 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database = sys.argv[3]
 
-    list_all_states(username, password, database)
+    list_regx_states(username, password, database)
