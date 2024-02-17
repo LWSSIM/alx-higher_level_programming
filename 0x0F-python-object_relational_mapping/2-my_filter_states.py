@@ -30,7 +30,10 @@ def list_key_match(username, password, database, key):
             charset="utf8",
         )
         cur = conn.cursor()
-        cur.execute(f"SELECT * FROM states WHERE BINARY name = '{key}' ORDER BY id")
+        cur.execute(
+            f"SELECT * FROM states WHERE BINARY \
+                    name = '{key}' ORDER BY id"
+        )
         rows = cur.fetchall()
 
         for row in rows:
