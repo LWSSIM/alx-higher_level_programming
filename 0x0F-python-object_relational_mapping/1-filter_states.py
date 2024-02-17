@@ -31,7 +31,7 @@ def list_regx_states(username, password, database):
         cursor = conn.cursor()
 
         cursor.execute(
-            "SELECT * FROM states WHERE name LIKE 'N%' \
+            "SELECT * FROM states WHERE name LIKE BINARY 'N%' \
                        ORDER BY states.id"
         )
 
