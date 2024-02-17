@@ -24,6 +24,8 @@ def list_first_obj(un, ps, db):
             print(f"{state.id}: {state.name}")
     except Exception as e:
         print(e)
+    finally:
+        session.close()
 
 
 if __name__ == "__main__":
