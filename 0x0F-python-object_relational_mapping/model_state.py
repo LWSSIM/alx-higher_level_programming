@@ -1,4 +1,4 @@
-#!/usr/bin/pydoc3
+#!/usr/bin/python3
 """
 Class definition of a State and an instance Base = declarative_base():
 """
