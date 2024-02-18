@@ -11,7 +11,7 @@ from sqlalchemy import create_engine
 from model_state import Base, State
 
 
-def list_regx_state(un, ps, db, key):
+def print_id_state(un, ps, db, key):
     engine = create_engine(f"mysql://{un}:{ps}@localhost:3306/{db}")
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -45,4 +45,4 @@ if __name__ == "__main__":
     db = sys.argv[3]
     key = sys.argv[4]
 
-    list_regx_state(un, ps, db, key)
+    print_id_state(un, ps, db, key)
