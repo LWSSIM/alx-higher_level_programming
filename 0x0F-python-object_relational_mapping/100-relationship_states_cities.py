@@ -15,8 +15,10 @@ from relationship_state import Base, State
 
 
 def create_state_city(un, ps, db):
+    """new state:city"""
     engine = create_engine(f"mysql://{un}:{ps}@localhost:3306/{db}")
 
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
@@ -28,6 +30,10 @@ def create_state_city(un, ps, db):
         session.add(city)
 
         session.commit()
+
+    except Exception as e:
+        session.rollback()
+        print(e)
 
     finally:
         session.close()
