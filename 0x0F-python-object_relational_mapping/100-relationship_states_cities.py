@@ -29,10 +29,6 @@ def create_state_city(un, ps, db):
 
         session.commit()
 
-    except Exception as e:
-        session.rollback()
-        print(e)
-
     finally:
         session.close()
 
