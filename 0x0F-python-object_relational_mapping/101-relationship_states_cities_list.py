@@ -26,7 +26,12 @@ def list_all_objs(un, ps, db):
     session = Session()
 
     try:
-        query = session.query(State).outerjoin(City).order_by(State.id, City.id).all()
+        query = (
+            session.query(State).
+            outerjoin(City).
+            order_by(State.id, City.id).
+            all()
+        )
 
         for state in query:
             print(f"{state.id}: {state.name}")
