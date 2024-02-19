@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Creates the State “California” with the City “San Francisco”
- from the database hbtn_0e_100_usa
+Lists all State objects, and corresponding City objects,
+ contained in the database hbtn_0e_101_usa
 """
 
 
@@ -14,20 +14,24 @@ from relationship_city import City
 from relationship_state import Base, State
 
 
-def create_state_city(un, ps, db):
+def list_all_objs(un, ps, db):
+    """<state id>: <state name>
+    <tabulation><city id>: <city name>
+    """
     engine = create_engine(f"mysql://{un}:{ps}@localhost:3306/{db}")
+
+    Base.metadata.create_all(engine)
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
     try:
-        state = State(name="California")
-        session.add(state)
+        query = session.query(State).outerjoin(City).order_by(State.id, City.id).all()
 
-        city = City(name="San Francisco", state=state)
-        session.add(city)
-
-        session.commit()
+        for state in query:
+            print(f"{state.id}: {state.name}")
+            for city in state.cities:
+                print(f"\t{city.id}: {city.name}")
 
     except Exception as e:
         session.rollback()
@@ -46,4 +50,4 @@ if __name__ == "__main__":
     ps = sys.argv[2]
     db = sys.argv[3]
 
-    create_state_city(un, ps, db)
+    list_all_objs(un, ps, db)
