@@ -1,22 +1,23 @@
 #!/usr/bin/python3
 """Function that finds a peak in a list of unsorted integers.
+    (binary search algorithm)
 """
 
 
 def find_peak(list_of_integers):
     """Returns peak value from a list of integers"""
-    n = len(list_of_integers)
 
-    for idx, num in enumerate(list_of_integers):
-        prev = list_of_integers[idx - 1] if idx else 0
-        next = list_of_integers[idx + 1] if idx < n - 1 else 0
-        if num >= prev and num >= next:
-            return num
+    if not list_of_integers:
+        return None
 
+    left, right = 0, len(list_of_integers) - 1
 
-print(find_peak([1, 2, 4, 6, 3]))
-print(find_peak([4, 2, 1, 2, 3, 1]))
-print(find_peak([2, 2, 2]))
-print(find_peak([]))
-print(find_peak([-2, -4, 2, 1]))
-print(find_peak([4, 2, 1, 2, 2, 2, 3, 1]))
+    while left < right:
+        mid = (left + right) // 2
+
+        if list_of_integers[mid] < list_of_integers[mid + 1]:
+            left = mid + 1
+        else:
+            right = mid
+
+    return list_of_integers[left]
