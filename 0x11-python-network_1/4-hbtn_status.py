@@ -14,4 +14,4 @@ if __name__ == "__main__":
     if response.status_code == 200:
         print("Body response:")
         print("\t- type:", type(response.content))
-        print("\t- content:", response.content)
+        print("\t- content:", response.text)
