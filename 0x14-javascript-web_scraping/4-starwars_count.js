@@ -19,11 +19,10 @@ request(url, (err, response, body) => {
 
   else {
     const data = JSON.parse(body);
-    const id = 18;
     let count = 0;
     data.results.forEach(film => {
       if (film.characters.includes(
-        `https://swapi-api.alx-tools.com/api/people/${id}/`)) {
+        'https://swapi-api.alx-tools.com/api/people/18/')) {
         count++;
       }
     });
