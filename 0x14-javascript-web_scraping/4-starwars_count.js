@@ -15,15 +15,13 @@ const url = process.argv[2];
 request(url, (err, response, body) => {
   if (err) console.log(err.message);
 
+  else if (response.statusCode !== 200) console.log(response.statusMessage);
+
   else {
-    const data = JSON.parse(body);
-    let count = 0;
-    data.results.forEach(film => {
-      if (film.characters.includes(
-        'https://swapi-api.alx-tools.com/api/people/18/')) {
-        count++;
-      }
-    });
-    console.log(`${count}`);
+    const id = 18;
+    const count = body.split(
+      `https://swapi-api.alx-tools.com/api/people/${id}/`
+    ).length - 1;
+    console.log(count);
   }
 });
