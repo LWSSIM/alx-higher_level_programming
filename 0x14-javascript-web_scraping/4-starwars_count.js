@@ -27,6 +27,6 @@ request(url, (err, response, body) => {
         count++;
       }
     });
-    console.log(count);
+    console.log(`${count}`);
   }
 });
