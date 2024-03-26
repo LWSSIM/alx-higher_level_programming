@@ -15,13 +15,6 @@ const url = process.argv[2];
 request(url, (err, response, body) => {
   if (err) console.log(err.message);
 
-  else if (response.statusCode !== 200) console.log(response.statusMessage);
-
-  else {
-    const id = 18;
-    const count = body.split(
-      `https://swapi-api.alx-tools.com/api/people/${id}/`
-    ).length - 1;
-    console.log(count);
-  }
+  const count = body.split('/people/18/').length - 1;
+  console.log(count);
 });
