@@ -15,8 +15,6 @@ const url = process.argv[2];
 request(url, (err, response, body) => {
   if (err) console.log(err.message);
 
-  else if (response.statusCode !== 200) console.log(response.statusMessage);
-
   else {
     const data = JSON.parse(body);
     let count = 0;
