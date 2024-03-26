@@ -16,6 +16,10 @@ request(url, { json: true }, (err, res, body) => {
     console.log(err);
     process.exit(1);
   }
+  if (res.statusCode !== 200) {
+    console.log(res.statusMessage);
+    process.exit(1);
+  }
 
   const completedTasks = {};
   body.forEach(task => {
