@@ -7,9 +7,9 @@
  * NOTE: This is very slow
  *   */
 
-const request = require('request'),
-  util = require('util');
-scriptName = process.argv[1].split('/').pop();
+const request = require('request');
+const util = require('util');
+const scriptName = process.argv[1].split('/').pop();
 
 if (process.argv.length !== 3) {
   console.log(`Usage: ./${scriptName} <movie number>`);
@@ -26,7 +26,7 @@ const preRequest = util.promisify(request);
     for (const character of response.characters) {
       const response = (await preRequest(character, { json: true })).body;
       console.log(response.name);
-    };
+    }
   } catch (err) {
     console.log(err.message);
   }
