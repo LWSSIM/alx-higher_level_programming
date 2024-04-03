@@ -67,6 +67,10 @@ document.getElementById("myElement").innerHTML = "New Content";
 ## What is DOM?
 DOM (Document Object Model) is a programming interface for web documents. It represents the structure of a document as a tree of nodes, allowing developers to manipulate its content, structure, and style dynamically.
 
+<p align='center'>
+<img src="https://github.com/LWSSIM/alx-higher_level_programming/assets/127129101/36a81d24-8361-4dff-94f5-0135153d0771" alt="DOM" width="500" height="500">
+</p>
+
 ## How to Modify the DOM
 You can modify the DOM using JavaScript methods like `createElement`, `appendChild`, `removeChild`, `setAttribute`, etc.
 
